@@ -21,3 +21,8 @@ export const createEmptyProject = (): Project => ({
   isActive: false,
   employees: [],
 });
+
+export const createEmptyEmployeeSummary = (): EmployeeSummary => ({
+  id: '',
+  employeeName: '',
+});

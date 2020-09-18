@@ -4,9 +4,13 @@ import * as viewModel from './project.vm';
 
 const mapEmployeeSummaryFromApiToVm = (
   employeeSummary: apiModel.EmployeeSummary
-): viewModel.EmployeeSummary => ({
-  ...employeeSummary,
-});
+): viewModel.EmployeeSummary => {
+  return Boolean(employeeSummary)
+    ? {
+        ...employeeSummary,
+      }
+    : viewModel.createEmptyEmployeeSummary();
+};
 
 const mapEmployeeSummaryListFromApiToVm = (
   employeeSummary: apiModel.EmployeeSummary[]
