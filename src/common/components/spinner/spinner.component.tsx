@@ -7,7 +7,11 @@ import * as classes from './spinner.styles';
 export const SpinnerComponent: React.FunctionComponent = () => {
   const { promiseInProgress } = usePromiseTracker();
   return (
-    <Modal open={promiseInProgress} className={classes.modal}>
+    <Modal
+      data-testid="modal"
+      open={promiseInProgress}
+      className={classes.modal}
+    >
       <div className={classes.loaderContainer}>
         <Loader />
       </div>
