@@ -38,25 +38,27 @@ describe('spinner component spec', () => {
     expect(modal).not.toBeInTheDocument();
   });
 
-  //   it('should be closed when open property is changed to false', () => {
-  //     //Arrange
-  //     const usePromiseTrackerStub = jest
-  //       .spyOn(promiseTracker, 'usePromiseTracker')
-  //       .mockReturnValue({
-  //         promiseInProgress: true,
-  //       });
+  it('should be closed when open property is changed to false', () => {
+    //Arrange
+    const usePromiseTrackerStub = jest
+      .spyOn(promiseTracker, 'usePromiseTracker')
+      .mockReturnValue({
+        promiseInProgress: true,
+      });
 
-  //     //Act
-  //     render(<SpinnerComponent />);
+    //Act
+    const { rerender } = render(<SpinnerComponent />);
 
-  //     usePromiseTrackerStub.mockReturnValue({
-  //       promiseInProgress: false,
-  //     });
+    usePromiseTrackerStub.mockReturnValue({
+      promiseInProgress: false,
+    });
 
-  //     const modal = screen.queryByTestId('modal');
+    rerender(<SpinnerComponent />);
 
-  //     //Assert
+    const modal = screen.queryByTestId('modal');
 
-  //     expect(modal).not.toBeInTheDocument();
-  //   });
+    //Assert
+
+    expect(modal).not.toBeInTheDocument();
+  });
 });
